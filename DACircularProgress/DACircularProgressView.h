@@ -20,6 +20,8 @@
 @property(nonatomic) CGFloat indeterminateDuration UI_APPEARANCE_SELECTOR;
 @property(nonatomic) NSInteger indeterminate UI_APPEARANCE_SELECTOR; // Can not use BOOL with UI_APPEARANCE_SELECTOR :-(
 
+@property(nonatomic, strong) NSString *progressImageName;
+
 - (void)setProgress:(CGFloat)progress animated:(BOOL)animated;
 - (void)setProgress:(CGFloat)progress animated:(BOOL)animated initialDelay:(CFTimeInterval)initialDelay;
 

@@ -18,6 +18,7 @@
 @property(nonatomic) CGFloat thicknessRatio;
 @property(nonatomic) CGFloat progress;
 @property(nonatomic) NSInteger clockwiseProgress;
+@property(nonatomic, strong) NSString *progressImageName;
 
 @end
 
@@ -29,6 +30,7 @@
 @dynamic thicknessRatio;
 @dynamic progress;
 @dynamic clockwiseProgress;
+@dynamic progressImageName;
 
 + (BOOL)needsDisplayForKey:(NSString *)key
 {
@@ -68,13 +70,14 @@
     CGPathRelease(trackPath);
     
     if (progress > 0.0f) {
-        CGContextSetFillColorWithColor(context, self.progressTintColor.CGColor);
+        //CGContextSetFillColorWithColor(context, self.progressTintColor.CGColor);
+        CGContextDrawImage(context, self.bounds, [[UIImage imageNamed:self.progressImageName] CGImage]);
         CGMutablePathRef progressPath = CGPathCreateMutable();
         CGPathMoveToPoint(progressPath, NULL, centerPoint.x, centerPoint.y);
-        CGPathAddArc(progressPath, NULL, centerPoint.x, centerPoint.y, radius, (float)(3.0f * M_PI_2), radians, !clockwise);
+        CGPathAddArc(progressPath, NULL, centerPoint.x, centerPoint.y, radius, (float)(3.0f * M_PI_2), radians, clockwise);
         CGPathCloseSubpath(progressPath);
         CGContextAddPath(context, progressPath);
-        CGContextFillPath(context);
+        //CGContextFillPath(context);
         CGPathRelease(progressPath);
     }
     
@@ -284,6 +287,11 @@
 {
     self.circularProgressLayer.clockwiseProgress = clockwiseProgres;
     [self.circularProgressLayer setNeedsDisplay];
+}
+                                                  
+- (void)setProgressImageName:(NSString *)progressImageName
+{
+    self.circularProgressLayer.progressImageName = progressImageName;
 }
 
 @end
