@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/royroycat/DACircularProgress"
   s.license      = 'MIT'
   s.author       = { "Daniel Amitay" => "hello@danielamitay.com" }
-  s.source       = { :git => "https://github.com/royroycat/DACircularProgress.git", :tag => "2.2.0" }
+  s.source       = { :git => "https://github.com/royroycat/DACircularProgress.git" }
   s.platform     = :ios, '5.0'
   s.source_files = 'DACircularProgress'
   s.framework    = 'QuartzCore'
