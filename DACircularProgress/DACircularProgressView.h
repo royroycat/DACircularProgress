@@ -23,6 +23,7 @@
 @property(nonatomic, strong) NSString *progressImageName;
 
 - (void)setProgress:(CGFloat)progress animated:(BOOL)animated;
-- (void)setProgress:(CGFloat)progress animated:(BOOL)animated initialDelay:(CFTimeInterval)initialDelay;
+- (void)setProgress:(CGFloat)progress animated:(BOOL)animated animationRate:(CGFloat)rate;
+- (void)setProgress:(CGFloat)progress animated:(BOOL)animated initialDelay:(CFTimeInterval)initialDelay animationRate:(CGFloat)rate;
 
 @end
